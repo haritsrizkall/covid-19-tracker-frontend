@@ -1,0 +1,30 @@
+#login {
+    position: absolute;
+    top: 27%;
+    width: 100%;
+    text-align: center;
+    .login-form {
+        position: relative;
+        bottom: 50%;
+        .email{
+            margin-bottom: 15px;
+            input {
+                width: 250px;
+                height: 25px;
+            }
+        }
+        .password {
+            margin-bottom: 15px;
+            input {
+                width: 250px;
+                height: 25px;
+            }
+        }
+        .button-submit{
+            input{
+                height: 35px;
+                width: 260px;
+            }
+        }
+    }
+}
