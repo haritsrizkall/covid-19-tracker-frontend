@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React from 'react'
+import { Redirect } from 'react-router';
 import ErrorComponent from '../components/ErrorComponent';
 
 class LoginForm extends React.Component{
@@ -23,7 +24,7 @@ class LoginForm extends React.Component{
             email: this.state.email,
             password: this.state.password
         }).then((response) => {
-            console.log(response.data);
+            <Redirect to="/dashboard"/>
         }, (error) => {
             this.setState({error : error.response.data.errors})
             console.log(this.state.error)
