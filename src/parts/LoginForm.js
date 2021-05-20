@@ -2,13 +2,16 @@ import axios from 'axios';
 import React from 'react'
 import { Redirect } from 'react-router';
 import ErrorComponent from '../components/ErrorComponent';
+import InputComponent from '../components/InputComponents';
+
 
 class LoginForm extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
             email : "",
-            password : ""
+            password : "",
+            redirectToReferrer: false
         }
 
         this.handleChange = this.handleChange.bind(this)
@@ -19,37 +22,53 @@ class LoginForm extends React.Component{
         this.setState({[event.target.name] : event.target.value})
     }
     handleSubmit(e){
-        e.preventDefault()
+        this.setState({errorEmail : ""})
+        this.setState({errorAuth : ""})
+        this.setState({errorPassword : ""})
         axios.post('http://127.0.0.1:8000/api/users/auth_check', {
             email: this.state.email,
             password: this.state.password
         }).then((response) => {
-            <Redirect to="/dashboard"/>
+            sessionStorage.setItem('token',response.data.token)
+            this.setState({redirectToReferrer : true})
         }, (error) => {
-            this.setState({error : error.response.data.errors})
-            console.log(this.state.error)
+            // for (const val of error.response.data.errors) {
+            //     this.setState({error : val})
+            // }
+            if (error.response.data.errors.email) {
+                this.setState({errorEmail : error.response.data.errors.email[0]})
+            }
+            if (error.response.data.errors.password) {
+                this.setState({errorPassword : error.response.data.errors.password[0]})
+            }
+            if (error.response.data.errors.auth) {  
+                this.setState({errorAuth : error.response.data.errors.auth[0]})
+            }
+            
+            console.log(this.state.errorAuth)
+            console.log(this.state.errorEmail)
+            console.log(this.state.errorPassword)
         });
         
+        e.preventDefault()
     }
     errorMessage(){
         
     }
     render(){
-        const isError = this.state.error
-        let errorMessage
-        if (isError) {
-            errorMessage = <ErrorComponent error={isError}/>
+        if (this.state.redirectToReferrer) {
+            return <Redirect to="/dashboard"/>
         }
+        const isError = this.state.error
+        let errorAuth = this.state.errorAuth ? <ErrorComponent error={this.state.errorAuth}/> : ""
+        
+
         return(
             <form onSubmit={this.handleSubmit}>
             <div className="login-form">
-                {errorMessage}
-                <div className="form-group email">
-                    <input type="text" name="email" id="email" placeholder="email..." autoComplete="off" onChange={this.handleChange}></input>
-                </div>
-                <div className="form-group password">
-                    <input type="password" name="password" id="password" placeholder="Password..." autoComplete="off" onChange={this.handleChange}></input>
-                </div>
+                {errorAuth}
+                <InputComponent type="text" className="email" name="email" id="email" placeholder="Email..." handleChange={this.handleChange} errorMessage={`${this.state.errorEmail}`}/> 
+                <InputComponent type="password" className="password" name="password" id="password" placeholder="Password..." handleChange={this.handleChange} errorMessage={`${this.state.errorPassword}`}/> 
                 <div className="button-submit">
                     <input type="submit" value="Submit"/>
                 </div>

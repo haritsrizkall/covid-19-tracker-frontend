@@ -9,13 +9,13 @@ import { BrowserRouter } from 'react-router-dom';
 function App() {
   return (
     <BrowserRouter>
-       <Switch>
-      <Route path="/">
-        <LoginPage/>
-      </Route>
-      <Route path="/dashboard">
-        <DashboardPage/>
-      </Route>
+      <Switch>
+        <Route exact path="/">
+          <LoginPage/>
+        </Route>
+        <Route exact path="/dashboard">
+          <DashboardPage/>
+        </Route>
     </Switch>
     </BrowserRouter>
      
