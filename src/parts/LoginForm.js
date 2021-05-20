@@ -43,11 +43,7 @@ class LoginForm extends React.Component{
             }
             if (error.response.data.errors.auth) {  
                 this.setState({errorAuth : error.response.data.errors.auth[0]})
-            }
-            
-            console.log(this.state.errorAuth)
-            console.log(this.state.errorEmail)
-            console.log(this.state.errorPassword)
+            }   
         });
         
         e.preventDefault()
