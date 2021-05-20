@@ -5,6 +5,7 @@ import reactDom from 'react-dom';
 import { Route, Router, Switch } from 'react-router';
 import DashboardPage from './pages/DashboardPage';
 import { BrowserRouter } from 'react-router-dom';
+import PersonDetailPage from './pages/PersonDetailPage';
 
 function App() {
   return (
@@ -16,6 +17,8 @@ function App() {
         <Route exact path="/dashboard">
           <DashboardPage/>
         </Route>
+        <Route exact path="/person/detail/:personId" component={PersonDetailPage}/>
+          
     </Switch>
     </BrowserRouter>
      

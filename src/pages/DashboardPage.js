@@ -2,6 +2,8 @@ import axios from 'axios'
 import React from 'react'
 import { Redirect } from 'react-router'
 import InputComponent from '../components/InputComponents'
+import ActionButton from '../parts/ActionButton'
+import ActionTable from '../parts/ActionButton'
 
 class DashboardPage extends React.Component{
     constructor(props){
@@ -36,7 +38,7 @@ class DashboardPage extends React.Component{
         });  
     }
     render(){
-        let personList = this.state.persons.map((person, index) => <tr><td>{index+1}</td><td>{person.id}</td><td>{person.name}</td><td>{person.gender}</td><td>{person.age}</td><td>{person.person_condition}</td><td>""</td></tr>)
+        let personList = this.state.persons.map((person, index) => <tr><td>{index+1}</td><td>{person.id}</td><td>{person.name}</td><td>{person.gender}</td><td>{person.age}</td><td>{person.person_condition}</td><td><ActionButton personId={person.id}/></td></tr>)
         var token = sessionStorage.getItem('token')
         if (!token) {
             return <Redirect to="/"/>
@@ -46,9 +48,6 @@ class DashboardPage extends React.Component{
                 <div className="search">
                     <div className="input">
                         <InputComponent type="text"     className="input-search" name="search" id="search" placeholder="Search..." handleChange={this.handleChange} />
-                    </div>
-                    <div className="button-submit">
-                        <input type="submit" value="Submit"/>
                     </div>
                 </div>
                 <div className="trace">
