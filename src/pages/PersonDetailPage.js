@@ -5,18 +5,24 @@ import { useParams } from 'react-router';
 class PersonDetailPage extends React.Component{
     constructor(props){
         super(props)
-        this.state = {person : {}}
+        this.state = {
+            person : [],
+            position : [],
+        }
     }
     componentDidMount(){
         let personId = this.props.match.params.personId
         axios.get('http://127.0.0.1:8000/api/detail/' + personId, {
         }).then((response) => {
             this.setState({person : response.data.data})
+            this.setState({position : response.data.data.position})
+            console.log(this.state.position)
         }, (error) => {
            console.log(error)
         });
     }
     render(){
+        let positionList = this.state.position.map((position, index)=> <tr><td>{index+1}</td><td>{position.longitude}</td><td>{position.latitude}</td>{position.date_time}</tr>)
         return(
             <div className="detail">
                 <div className="person-profile">
@@ -36,6 +42,25 @@ class PersonDetailPage extends React.Component{
                         <p className="label">Condition  :</p>
                         <p>{this.state.person.person_condition}</p>
                     </div>
+                </div>
+                <div className="person-position">
+                    <table>
+                        <tr>
+                            <th>
+                                No
+                            </th>
+                            <th>
+                                Longitude
+                            </th>
+                            <th>
+                                Latitude
+                            </th>
+                            <th>
+                                Date time
+                            </th>
+                        </tr>
+                        {positionList}
+                    </table>
                 </div>
             </div>
         )
