@@ -6,6 +6,7 @@ import { Route, Router, Switch } from 'react-router';
 import DashboardPage from './pages/DashboardPage';
 import { BrowserRouter } from 'react-router-dom';
 import PersonDetailPage from './pages/PersonDetailPage';
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 function App() {
   return (
