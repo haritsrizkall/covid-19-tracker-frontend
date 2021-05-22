@@ -8,7 +8,6 @@ import { BrowserRouter } from 'react-router-dom';
 import PersonDetailPage from './pages/PersonDetailPage';
 import PersonTracking from './pages/PersonTracking';
 
-
 function App() {
   return (
     <BrowserRouter>

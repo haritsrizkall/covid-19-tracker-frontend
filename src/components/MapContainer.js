@@ -7,18 +7,18 @@ const mapStyles = {
 };
 
 
+console.log(process.env.REACT_APP_GOOGLE_API_KEY)
+
 class MapContainer extends React.Component{
   constructor(props){
     super(props)
   }
   render() {
     const positions = this.props.positions
-    console.log(positions)
     let longlat = []
     positions.map((position,index) => {
       longlat.push({lat: position.latitude, lng: position.longitude})
     })
-    console.log(longlat)
     let marker = longlat.map((pos,index) => <Marker
     position={pos} />)
     return (
@@ -35,5 +35,5 @@ class MapContainer extends React.Component{
 }
 
 export default GoogleApiWrapper({
-    apiKey: 'AIzaSyDg0DegZ5TH9hb5MdXFCfGxm1ldbV-yGLk'
+    apiKey: 'rahasia'
   })(MapContainer);;
