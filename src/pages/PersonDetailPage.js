@@ -1,22 +1,25 @@
 import axios from 'axios';
 import React from 'react'
 import { useParams } from 'react-router';
+import { Link } from 'react-router-dom';
 
 class PersonDetailPage extends React.Component{
+    
     constructor(props){
         super(props)
         this.state = {
             person : [],
             position : [],
+            personId : this.props.match.params.personId,
         }
+        
+    // let personId = this.props.match.params.personId
     }
     componentDidMount(){
-        let personId = this.props.match.params.personId
-        axios.get('http://127.0.0.1:8000/api/detail/' + personId, {
+        axios.get('http://127.0.0.1:8000/api/detail/' + this.state.personId, {
         }).then((response) => {
             this.setState({person : response.data.data})
             this.setState({position : response.data.data.position})
-            console.log(this.state.position)
         }, (error) => {
            console.log(error)
         });
@@ -62,6 +65,7 @@ class PersonDetailPage extends React.Component{
                         {positionList}
                     </table>
                 </div>
+                <Link to={`/person/`+ this.state.personId + `/tracking`}>Tracking</Link>
             </div>
         )
     }

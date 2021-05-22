@@ -21,7 +21,7 @@ function App() {
           <DashboardPage/>
         </Route>
         <Route exact path="/person/detail/:personId" component={PersonDetailPage}/>
-        <Route exact path="/tracking/:personId" component={PersonTracking}/>  
+        <Route exact path="/person/:personId/tracking" component={PersonTracking}/>  
     </Switch>
     </BrowserRouter>
      
