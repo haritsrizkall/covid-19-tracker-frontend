@@ -14,6 +14,7 @@ class MapContainer extends React.Component{
     super(props)
   }
   render() {
+    console.log(process.env.REACT_APP_GOOGLE_API_KEY)
     const positions = this.props.positions
     let longlat = []
     positions.map((position,index) => {
@@ -35,5 +36,5 @@ class MapContainer extends React.Component{
 }
 
 export default GoogleApiWrapper({
-    apiKey: 'rahasia'
+    apiKey: process.env.REACT_APP_GOOGLE_API_KEY
   })(MapContainer);;

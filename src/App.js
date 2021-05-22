@@ -7,8 +7,10 @@ import DashboardPage from './pages/DashboardPage';
 import { BrowserRouter } from 'react-router-dom';
 import PersonDetailPage from './pages/PersonDetailPage';
 import PersonTracking from './pages/PersonTracking';
+require('dotenv').config()
 
 function App() {
+  console.log(process.env)
   return (
     <BrowserRouter>
       <Switch>
