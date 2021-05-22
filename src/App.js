@@ -6,7 +6,8 @@ import { Route, Router, Switch } from 'react-router';
 import DashboardPage from './pages/DashboardPage';
 import { BrowserRouter } from 'react-router-dom';
 import PersonDetailPage from './pages/PersonDetailPage';
-import 'mapbox-gl/dist/mapbox-gl.css';
+import PersonTracking from './pages/PersonTracking';
+
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
           <DashboardPage/>
         </Route>
         <Route exact path="/person/detail/:personId" component={PersonDetailPage}/>
-          
+        <Route exact path="/tracking/:personId" component={PersonTracking}/>  
     </Switch>
     </BrowserRouter>
      

@@ -1,34 +1,41 @@
-#login {
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+html #login, body #login {
   position: absolute;
   top: 27%;
   width: 100%;
   text-align: center;
 }
 
-#login .login-form {
+html #login .login-form, body #login .login-form {
   position: relative;
   bottom: 50%;
 }
 
-#login .login-form .email {
+html #login .login-form .email, body #login .login-form .email {
   margin-bottom: 15px;
 }
 
-#login .login-form .email input {
+html #login .login-form .email input, body #login .login-form .email input {
   width: 250px;
   height: 25px;
 }
 
-#login .login-form .password {
+html #login .login-form .password, body #login .login-form .password {
   margin-bottom: 15px;
 }
 
-#login .login-form .password input {
+html #login .login-form .password input, body #login .login-form .password input {
   width: 250px;
   height: 25px;
 }
 
-#login .login-form .button-submit input {
+html #login .login-form .button-submit input, body #login .login-form .button-submit input {
   height: 35px;
   width: 260px;
 }
