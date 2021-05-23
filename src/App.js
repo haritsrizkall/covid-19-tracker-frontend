@@ -10,7 +10,6 @@ import PersonTracking from './pages/PersonTracking';
 require('dotenv').config()
 
 function App() {
-  console.log(process.env)
   return (
     <BrowserRouter>
       <Switch>
