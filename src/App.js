@@ -7,6 +7,7 @@ import DashboardPage from './pages/DashboardPage';
 import { BrowserRouter } from 'react-router-dom';
 import PersonDetailPage from './pages/PersonDetailPage';
 import PersonTracking from './pages/PersonTracking';
+import TracingPage from './pages/TracingPage';
 require('dotenv').config()
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         </Route>
         <Route exact path="/person/detail/:personId" component={PersonDetailPage}/>
         <Route exact path="/person/:personId/tracking" component={PersonTracking}/>  
+        <Route exact path="/person/:personId/tracing" component={TracingPage}/>
     </Switch>
     </BrowserRouter>
      
