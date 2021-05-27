@@ -48,12 +48,14 @@ class MapContainer extends React.Component{
     let marker = longlat.map((pos,index) => {
       if (pos.kondisi == 'terpapar') {
         return <Marker
-        position={pos.pos} onClick={this.onMarkerClick} name={pos.date_time.date_time} icon={{url: '/img/patient.svg', scaledSize: new window.google.maps.Size(25,25)}}/>
+        position={pos.pos} onClick={this.onMarkerClick} name={"Date time : " + pos.date_time.date_time + '\n' + "Keterangan : " + pos.kondisi} icon={{url: '/img/patient.svg', scaledSize: new window.google.maps.Size(25,25)}}/>
       }else{
         return <Marker
-      position={pos.pos} onClick={this.onMarkerClick} name={pos.date_time.date_time} />
+      position={pos.pos} onClick={this.onMarkerClick} name={pos.kondisi ? "Date time : " + pos.date_time.date_time + '\n' + "Keterangan : " + pos.kondisi : pos.date_time.date_time} />
       }
   })
+
+  console.log(this.state.selectedPlace)
     return (
         <Map
         google={this.props.google}

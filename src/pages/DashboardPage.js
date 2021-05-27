@@ -1,6 +1,8 @@
 import axios from 'axios'
 import React from 'react'
 import { Redirect } from 'react-router'
+import { Link } from 'react-router-dom'
+import ButtonComponent from '../components/ButtonComponent'
 import InputComponent from '../components/InputComponents'
 import ActionButton from '../parts/ActionButton'
 import ActionTable from '../parts/ActionButton'
@@ -38,7 +40,7 @@ class DashboardPage extends React.Component{
         });  
     }
     render(){
-        let personList = this.state.persons.map((person, index) => <tr><td>{index+1}</td><td>{person.id}</td><td>{person.name}</td><td>{person.gender}</td><td>{person.age}</td><td>{person.person_condition}</td><td><ActionButton personId={person.id}/></td></tr>)
+        let personList = this.state.persons.map((person, index) => <tr><td>{index+1}</td><td>{person.id}</td><td>{person.name}</td><td>{person.gender}</td><td>{person.age}</td><td>{person.person_condition}</td><td className="disp-flex"><ActionButton personId={person.id}/><ButtonComponent type="link" text="Tracing" url={`/person/${person.id}/tracing`} className="btn-tracing"/></td></tr>)
         var token = sessionStorage.getItem('token')
         if (!token) {
             return <Redirect to="/"/>

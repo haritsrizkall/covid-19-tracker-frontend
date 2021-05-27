@@ -3,6 +3,11 @@ html, body {
     width: 100%;
     margin: 0;
     padding: 0;
+
+    .disp-flex{
+        display: flex;
+    }
+
     #login {
         position: absolute;
         top: 27%;
@@ -33,5 +38,14 @@ html, body {
             }
         }
     }
+    
+    #dashboard{
+        .trace{
+            .btn-tracing{
+                margin-left: 10px;
+            }
+        }
+    }
+  
   }
 

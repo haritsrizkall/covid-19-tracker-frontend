@@ -5,6 +5,12 @@ html, body {
   padding: 0;
 }
 
+html .disp-flex, body .disp-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 html #login, body #login {
   position: absolute;
   top: 27%;
@@ -38,5 +44,9 @@ html #login .login-form .password input, body #login .login-form .password input
 html #login .login-form .button-submit input, body #login .login-form .button-submit input {
   height: 35px;
   width: 260px;
+}
+
+html #dashboard .trace .btn-tracing, body #dashboard .trace .btn-tracing {
+  margin-left: 10px;
 }
 /*# sourceMappingURL=App.css.map */
