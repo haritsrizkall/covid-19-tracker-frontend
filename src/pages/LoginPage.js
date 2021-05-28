@@ -23,12 +23,15 @@ class LoginPage extends React.Component {
             return <Redirect to="/dashboard"/>
         }
         return (
-            <div id="login">
-                <div className="login-title">
-                    <h1>Covid 19 Tracker</h1>
-                </div>
+            <div id="loginPage" style={{backgroundImage : "url(/img/bg-login.png)"}}>
+                <div id="login">
+                    <div className="login-title">
+                        <h1>COVID 19 TRACKER</h1>
+                    </div>
                 <LoginForm/>
+                 </div>
             </div>
+            
         )
     }
 }

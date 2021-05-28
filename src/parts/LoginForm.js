@@ -66,7 +66,7 @@ class LoginForm extends React.Component{
                 <InputComponent type="text" className="email" name="email" id="email" placeholder="Email..." handleChange={this.handleChange} errorMessage={`${this.state.errorEmail}`}/> 
                 <InputComponent type="password" className="password" name="password" id="password" placeholder="Password..." handleChange={this.handleChange} errorMessage={`${this.state.errorPassword}`}/> 
                 <div className="button-submit">
-                    <input type="submit" value="Submit"/>
+                    <input type="submit" value="Login"/>
                 </div>
             </div>
         </form>

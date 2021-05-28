@@ -8,36 +8,63 @@ html, body {
         display: flex;
     }
 
-    #login {
+    #loginPage{
         position: absolute;
-        top: 27%;
+        height: 100%;
         width: 100%;
-        text-align: center;
-        .login-form {
-            position: relative;
-            bottom: 50%;
-            .email{
-                margin-bottom: 15px;
-                input {
-                    width: 250px;
-                    height: 25px;
+        #login {
+            position: absolute;
+            top: 27%;
+            width: 100%;
+            text-align: center;
+            .login-form {
+                position: relative;
+                bottom: 50%;
+                .email{
+                    margin-bottom: 15px;
+                    input {
+                        width: 300px;
+                        height: 35px;
+                        padding-left: 12px;
+                        border-radius: 30px;
+                        outline: none;
+                    }
+                }
+                .password {
+                    margin-bottom: 15px;
+                    input {
+                        width: 300px;
+                        height: 35px;
+                        border-radius: 30px;
+                        outline: none;
+                        padding-left: 12px;
+                    }
+                }
+                .button-submit{
+                    input{
+                       
+                    height: 40px;
+                    width: 314px;
+                        border-radius: 30px;
+                        color: white;
+                        font-size: 20px;
+                        background-color: #121C35;
+                        border-color: white;
+                        border: none;
+                        cursor: pointer;
+                        -webkit-box-shadow: 5px 2px 29px -7px #000000; 
+                        box-shadow: 5px 2px 29px -7px #000000;
+                    }
                 }
             }
-            .password {
-                margin-bottom: 15px;
-                input {
-                    width: 250px;
-                    height: 25px;
-                }
-            }
-            .button-submit{
-                input{
-                    height: 35px;
-                    width: 260px;
+            .login-title{
+                h1{
+                    color: white;
                 }
             }
         }
     }
+   
     
     #dashboard{
         .trace{
