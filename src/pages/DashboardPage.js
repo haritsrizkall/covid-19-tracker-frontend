@@ -12,6 +12,7 @@ class DashboardPage extends React.Component{
         super(props)
         this.state = {
             redirectToLogin : false,
+            rawData: [{}],
             persons : [{}]
         }   
         this.handleChange = this.handleChange.bind(this)
@@ -20,24 +21,30 @@ class DashboardPage extends React.Component{
         let persons 
         axios.get('https://covid19.smartsoft.co.id/api/persons', {
         }).then((response) => {
-           persons = this.setState({persons: response.data.data})
-           console.log(persons)
+           this.setState({rawData: response.data.data})
+           this.setState({persons: this.state.rawData})
         }, (error) => {
             
         });
     }
+    
     handleChange(e){
         this.setState({persons: [{}]})
         let persons
         let query = e.target.value
         console.log(query)
-        axios.get('https://covid19.smartsoft.co.id/api/search/' + query, {
-        }).then((response) => {
-           this.setState({persons: response.data.data})
-           console.log(this.state.persons)
-        }, (error) => {
-            
-        });  
+      
+        if (query == "") {
+            this.setState({persons: this.state.rawData})
+        }else {
+            axios.get('https://covid19.smartsoft.co.id/api/search/' + query, {
+            }).then((response) => {
+               this.setState({persons: response.data.data})
+               console.log(this.state.persons)
+            }, (error) => {
+                
+            }); 
+        }
     }
     render(){
         let personList = this.state.persons.map((person, index) => <tr><td>{index+1}</td><td>{person.id}</td><td>{person.name}</td><td>{person.gender}</td><td>{person.age}</td><td>{person.person_condition}</td><td className="disp-flex"><ActionButton personId={person.id}/><ButtonComponent type="link" text="Tracing" url={`/person/${person.id}/tracing`} className="btn-tracing"/></td></tr>)
