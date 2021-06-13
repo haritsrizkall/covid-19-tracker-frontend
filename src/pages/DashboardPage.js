@@ -18,7 +18,7 @@ class DashboardPage extends React.Component{
     }
     componentDidMount(){
         let persons 
-        axios.get('http://127.0.0.1:8000/api/persons/', {
+        axios.get('https://covid19.smartsoft.co.id/api/persons/', {
         }).then((response) => {
            persons = this.setState({persons: response.data.data})
            console.log(persons)
@@ -31,7 +31,7 @@ class DashboardPage extends React.Component{
         let persons
         let query = e.target.value
         console.log(query)
-        axios.get('http://127.0.0.1:8000/api/search/' + query, {
+        axios.get('https://covid19.smartsoft.co.id/api/search/' + query, {
         }).then((response) => {
            this.setState({persons: response.data.data})
            console.log(this.state.persons)

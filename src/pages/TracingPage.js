@@ -19,7 +19,7 @@ class TracingPage extends React.Component{
     }
     componentDidMount(){
         let personId = this.props.match.params.personId
-        axios.get('http://127.0.0.1:8000/api/persons/'+personId+'/tracing/', {
+        axios.get('https://covid19.smartsoft.co.id/api/persons/'+personId+'/tracing/', {
         }).then((response) => {
             this.setState({person : response.data.data})
             this.setState({position : response.data.data.position})          
@@ -33,7 +33,7 @@ class TracingPage extends React.Component{
     handleChange(e){
         let query = e.target.value
         console.log(query)
-        axios.get('http://127.0.0.1:8000/api/persons/'+query+'/tracing/', {
+        axios.get('https://covid19.smartsoft.co.id/api/persons/'+query+'/tracing/', {
         }).then((response) => {
             this.setState({person : response.data.data})
             this.setState({position : response.data.data.position})          

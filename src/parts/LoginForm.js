@@ -25,7 +25,7 @@ class LoginForm extends React.Component{
         this.setState({errorEmail : ""})
         this.setState({errorAuth : ""})
         this.setState({errorPassword : ""})
-        axios.post('http://127.0.0.1:8000/api/users/auth_check', {
+        axios.post('https://covid19.smartsoft.co.id/api/users/auth_check', {
             email: this.state.email,
             password: this.state.password
         }).then((response) => {
