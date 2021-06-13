@@ -18,7 +18,7 @@ class DashboardPage extends React.Component{
     }
     componentDidMount(){
         let persons 
-        axios.get('https://covid19.smartsoft.co.id/api/persons/', {
+        axios.get('https://covid19.smartsoft.co.id/api/persons', {
         }).then((response) => {
            persons = this.setState({persons: response.data.data})
            console.log(persons)

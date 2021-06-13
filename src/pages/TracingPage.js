@@ -33,7 +33,7 @@ class TracingPage extends React.Component{
     handleChange(e){
         let query = e.target.value
         console.log(query)
-        axios.get('https://covid19.smartsoft.co.id/api/persons/'+query+'/tracing/', {
+        axios.get('https://covid19.smartsoft.co.id/api/persons/'+query+'/tracing', {
         }).then((response) => {
             this.setState({person : response.data.data})
             this.setState({position : response.data.data.position})          
