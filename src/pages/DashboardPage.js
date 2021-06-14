@@ -53,10 +53,15 @@ class DashboardPage extends React.Component{
             return <Redirect to="/"/>
         }
         return (
+            
             <div id="dashboard">
+                <a className="back" href="./">Back</a>
                 <div className="search">
                     <div className="input">
-                        <InputComponent type="text"     className="input-search" name="search" id="search" placeholder="Search..." handleChange={this.handleChange} />
+                        <InputComponent type="text"     
+                        className="input-search" name="search" 
+                        id="search" placeholder="Search.." 
+                        handleChange={this.handleChange} />
                     </div>
                 </div>
                 <div className="trace">

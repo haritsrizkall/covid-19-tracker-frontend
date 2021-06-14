@@ -1,9 +1,9 @@
 html, body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     height: 100%;
     width: 100%;
     margin: 0;
     padding: 0;
-
     .disp-flex{
         display: flex;
     }
@@ -14,7 +14,7 @@ html, body {
         width: 100%;
         #login {
             position: absolute;
-            top: 27%;
+            top: 28%;
             width: 100%;
             text-align: center;
             .login-form {
@@ -64,15 +64,173 @@ html, body {
             }
         }
     }
-   
     
     #dashboard{
-        .trace{
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-image: url(bg-dashboard.png);
+
+
+        a{
+            background-color: #4c93af;
+            border: none;
+            color: white;
+            padding: 9px 28px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        a:hover{
+            background-color: #3f778d;
+        }
+        a:active{
+            background-color: #315e6b;
+        }
+        .search{
+            position: absolute;
+            top: 27%;
+            width: 100%;
+            padding: 5px;
+            text-align: right;
+        }
+        .input {
+            overflow: hidden;
+            background-color: rgba(107, 168, 224, 0.637);
+            margin-left: 32%;
+            margin-right: 30.9%;
+        }
+        .input a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .input input[type=text] {
+            float: center;
+            padding: 7px;
+            border: none;
+            margin-top: 10px;
+            margin-right: 16px;
+            font-size: 15px;
+        }
+        .back{
+            position: absolute;
+            z-index: 200;
+            background-color: rgba(231, 77, 77, 0.952);
+            text-decoration: none;
+            top: 28%;
+            left: 32.5%;
+            font-weight: bold;
+        }
+        .back:hover{
+            background-color: rgba(190, 64, 50, 0.911);
+        }
+        .back:active{
+            background-color: rgba(122, 41, 32, 0.932);
+        }
+        .trace {
+            color: rgb(255, 255, 255);
+            position:absolute;
+            top: 34%;
+            left: 32%;
+            padding: 5px;
+            th, td {
+                border-bottom: 2px solid #ddd;
+            }
+            th {
+                background-color: #367bbbd8;
+                height: 40px;
+                width: 90px;
+                font-size:14px;
+                color: white;
+            }
+            th:first-child{
+                width: 50px;
+                text-align: center;
+            }
+            th:nth-child(2){
+                width: 50px;
+            }
+            tr:nth-child(n) {background-color: #42606e9d;}
+            tr:hover {background-color: #395364de;}
             .btn-tracing{
-                margin-left: 10px;
+                margin-left: 15px;
+                text-decoration: none;
+            }
+            .disp-flex a{
+                text-decoration: none;
             }
         }
+        
     }
-  
-  }
-
+    #detail{
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-image:url(bg-detail.png);
+        color: rgb(255, 255, 255);
+        a{
+            background-color: #34a8a2e7;
+            border: none;
+            color: white;
+            padding: 9px 28px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin: 4px 2px;
+            cursor: pointer;
+            margin-top: 1%;
+            margin-left: 1.1%;
+        }
+        a:hover{
+            background-color: #1e7c74f1;
+        }
+        a:active{
+            background-color: #0d4d44;
+        }
+        .person-profile{
+            margin-left: 1%;
+            margin-top: 2%;
+        }
+        .person-profile-data{
+            background-color: rgba(22, 121, 112, 0.651) ;
+            margin-right: 76.55%;
+        }
+        .person-profile-data:hover{
+            background-color: rgba(17, 99, 99, 0.692) ;
+        }
+        .label {
+            font-weight: bold;
+        }
+        .text{
+            padding-bottom:10px;
+        }
+        .person-position{
+            margin-left: 1%;
+            th {
+                background-color: #1ba587de;
+                height: 40px;
+                width: 92px;
+                font-size:14px;
+                color: white;
+            }
+            th:first-child{
+                width: 50px;
+            }
+            th:last-child{
+                width: 200px;
+            }
+            tr:nth-child(n) {
+                background-color: #53a19d96;
+                text-align: center;
+            }
+            tr:hover {background-color: #295855cc;}
+        }
+    }
+    #page1{
+        background-color:orange;
+    }
+}

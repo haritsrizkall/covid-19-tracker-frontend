@@ -45,15 +45,16 @@ class TracingPage extends React.Component{
         const positions = this.state.position
         console.log(positions)
         return (
-            <div className="map-tracking" id="map">
-                <div className="search">
-                    <div className="input">
-                        <InputComponent type="text"     className="input-search" name="search" id="search" placeholder="Id..." handleChange={this.handleChange} />
+            <div id="tracingPage">
+                <div className="map-tracking" id="map">
+                    <div className="search">
+                        <div className="input">
+                            <InputComponent type="text"     className="input-search" name="search" id="search" placeholder="Id..." handleChange={this.handleChange} />
+                        </div>
                     </div>
-                </div>
-                <MapContainer positions={this.state.position}/>
-            </div> 
-            // <h1>Hrll</h1> 
+                    <MapContainer positions={this.state.position}/>
+                </div> 
+            </div>
         )
     }
 }
