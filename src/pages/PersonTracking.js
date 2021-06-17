@@ -17,6 +17,7 @@ class PersonTracking extends React.Component{
         axios.get('https://covid19.smartsoft.co.id/api/positions/' + personId, {
         }).then((response) => {
             this.setState({position : response.data.position})
+            console.log(this.state.position)
         }, (error) => {
            console.log(error)
         });
