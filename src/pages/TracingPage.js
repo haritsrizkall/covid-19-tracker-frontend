@@ -19,7 +19,7 @@ class TracingPage extends React.Component{
     }
     componentDidMount(){
         let personId = this.props.match.params.personId
-        axios.get('https://covid19.smartsoft.co.id/api/persons/'+personId+'/tracing/', {
+        axios.get('https://covid19.smartsoft.co.id/api/persons/'+personId+'/tracing', {
         }).then((response) => {
             this.setState({person : response.data.data})
             this.setState({position : response.data.data.position})          
