@@ -14,9 +14,10 @@ class PersonTracking extends React.Component{
 
     componentDidMount(){
         let personId = this.props.match.params.personId
-        axios.get('https://covid19.smartsoft.co.id/api/positions/' + personId, {
+        axios.get('https://covid19.smartsoft.co.id/api/detail/' + personId, {
         }).then((response) => {
-            this.setState({position : response.data.position})
+            this.setState({person : response.data.data})
+            this.setState({position : response.data.data.position})
             console.log(this.state.position)
         }, (error) => {
            console.log(error)
