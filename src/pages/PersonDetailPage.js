@@ -27,23 +27,23 @@ class PersonDetailPage extends React.Component{
     render(){
         let positionList = this.state.position.map((position, index)=> <tr><td>{index+1}</td><td>{position.longitude}</td><td>{position.latitude}</td>{position.date_time}</tr>)
         return(
-            <div className="detail">
+            <div id="detail">
                 <div className="person-profile">
                     <div className="person-profile-data">
                         <p className="label">Name  :</p>
-                        <p>{this.state.person.name}</p>
+                        <p className="text">{this.state.person.name}</p>
                     </div>
                     <div className="person-profile-data">
                         <p className="label">Age  :</p>
-                        <p>{this.state.person.age}</p>
+                        <p className="text">{this.state.person.age}</p>
                     </div>
                     <div className="person-profile-data">
                         <p className="label">Gender  :</p>
-                        <p>{this.state.person.gender}</p>
+                        <p className="text">{this.state.person.gender}</p>
                     </div>
                     <div className="person-profile-data">
                         <p className="label">Condition  :</p>
-                        <p>{this.state.person.person_condition}</p>
+                        <p className="text">{this.state.person.person_condition}</p>
                     </div>
                 </div>
                 <div className="person-position">
@@ -65,6 +65,7 @@ class PersonDetailPage extends React.Component{
                         {positionList}
                     </table>
                 </div>
+                <Link to={`/dashboard`} className="back">Back</Link>
                 <Link to={`/person/`+ this.state.personId + `/tracking`}>Tracking</Link>
             </div>
         )
