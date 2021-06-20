@@ -16,7 +16,7 @@ class PersonDetailPage extends React.Component{
     // let personId = this.props.match.params.personId
     }
     componentDidMount(){
-        axios.get('https://covid19.smartsoft.co.id/api/detail/' + this.state.personId, {
+        axios.get('https://covid19.smartsoft.co.id/api/persons/' + this.state.personId +'/detail', {
         }).then((response) => {
             this.setState({person : response.data.data})
             this.setState({position : response.data.data.position})
