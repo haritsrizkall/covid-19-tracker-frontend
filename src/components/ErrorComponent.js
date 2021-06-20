@@ -4,7 +4,7 @@ class ErrorComponent extends React.Component {
     render(){
         const errorMessage = this.props.error
         return (
-            <p>{errorMessage}</p>
+            <p style={{color: red}}>{errorMessage}</p>
         )
     }
 }
